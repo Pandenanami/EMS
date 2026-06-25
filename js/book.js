@@ -115,50 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // PRELOADER / SPLASH SCREEN (opcional)
-    // ==========================================
-    const showSplash = () => {
-        const splash = document.createElement('div');
-        splash.style.cssText = `
-            position: fixed;
-            inset: 0;
-            background: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 1s ease;
-        `;
-        
-        splash.innerHTML = `
-            <div style="color: #5f1010; font-size: 60px; font-weight: bold; letter-spacing: 8px; margin-bottom: 20px;">
-                BCEMS
-            </div>
-            <div style="color: #8b7355; font-size: 14px; letter-spacing: 4px;">
-                CARGANDO MANUAL...
-            </div>
-            <div style="width: 200px; height: 2px; background: #1a1a1a; margin-top: 30px; border-radius: 1px; overflow: hidden;">
-                <div style="width: 0%; height: 100%; background: #5f1010; transition: width 1.5s ease;" id="splash-bar"></div>
-            </div>
-        `;
-        
-        document.body.appendChild(splash);
-        
-        setTimeout(() => {
-            document.getElementById('splash-bar').style.width = '100%';
-        }, 100);
-        
-        setTimeout(() => {
-            splash.style.opacity = '0';
-            setTimeout(() => splash.remove(), 1000);
-        }, 1800);
-    };
-
-    // Descomenta la siguiente línea para activar el splash screen:
-    // showSplash();
-
-    // ==========================================
     // DETECCIÓN DE TECLAS (accesibilidad)
     // ==========================================
     document.addEventListener('keydown', (e) => {
