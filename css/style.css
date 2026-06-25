@@ -791,4 +791,391 @@ h1 {
     color: #8b7355;
     font-size: 8px;
     font-weight: bold;
-    letter-spacing: 1px
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.bottle-sub {
+    color: #5a4a3a;
+    font-size: 6px;
+    text-align: center;
+}
+
+.bottle-cross {
+    color: #5f1010;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* Jeringa */
+.syringe {
+    position: absolute;
+    bottom: 40px;
+    left: 190px;
+    width: 80px;
+    height: 15px;
+    transform: rotate(-15deg);
+}
+
+.syringe-body {
+    width: 60px;
+    height: 12px;
+    background: linear-gradient(180deg, #c0c0c0, #808080);
+    border-radius: 2px;
+    position: relative;
+}
+
+.syringe-body::before {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 8px;
+    background: #c0c0c0;
+    border-radius: 0 2px 2px 0;
+}
+
+.syringe-needle {
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #c0c0c0, #808080);
+}
+
+/* Radio */
+.radio {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    width: 100px;
+    height: 130px;
+    background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+    border-radius: 5px;
+    border: 2px solid #333;
+    padding: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+}
+
+.radio::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    width: 3px;
+    height: 35px;
+    background: #333;
+    transform: rotate(10deg);
+}
+
+.radio-screen {
+    background: #1a3d1a;
+    border: 1px solid #0d260d;
+    padding: 5px;
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+}
+
+.radio-line {
+    color: #4aff4a;
+    font-size: 9px;
+    line-height: 1.4;
+    text-shadow: 0 0 5px rgba(74, 255, 74, 0.5);
+}
+
+.radio-buttons {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+}
+
+.r-btn {
+    background: #2a2a2a;
+    color: #666;
+    font-size: 6px;
+    padding: 3px 5px;
+    border-radius: 2px;
+    border: 1px solid #333;
+}
+
+/* Vainas de bala */
+.bullet-shell {
+    position: absolute;
+    width: 8px;
+    height: 25px;
+    background: linear-gradient(90deg, #b8860b, #8b6914, #b8860b);
+    border-radius: 0 0 4px 4px;
+    bottom: 35px;
+}
+
+.bullet-shell::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #666;
+    border-radius: 2px 2px 0 0;
+}
+
+.shell-1 {
+    right: 150px;
+    transform: rotate(45deg);
+}
+
+.shell-2 {
+    right: 170px;
+    transform: rotate(-20deg);
+}
+
+/* Insignia */
+.badge {
+    position: absolute;
+    bottom: 30px;
+    right: 200px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #2a2a2a, #1a1a1a);
+    border-radius: 50%;
+    border: 3px solid #4a4a4a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.badge-star {
+    color: #b8860b;
+    font-size: 20px;
+}
+
+.badge-text {
+    color: #666;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+/* Nota adhesiva */
+.sticky-note {
+    position: absolute;
+    bottom: 60px;
+    left: 50px;
+    width: 140px;
+    background: linear-gradient(180deg, #c4a574, #b8956a);
+    padding: 12px;
+    transform: rotate(-3deg);
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.4),
+        inset 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sticky-note::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+.sticky-title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2d1f14;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(45, 31, 20, 0.3);
+    padding-bottom: 4px;
+}
+
+.sticky-note p {
+    font-size: 11px;
+    color: #3d2b1a;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.sticky-cross {
+    text-align: center;
+    color: #5f1010;
+    font-size: 18px;
+    margin-top: 8px;
+    opacity: 0.6;
+}
+
+/* ============================================
+   FRASE INFERIOR
+   ============================================ */
+
+.bottom-quote {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.quote-line1 {
+    color: #8b7355;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.quote-line2 {
+    color: #5f1010;
+    font-size: 16px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* ============================================
+   ENCABEZADOS GENERALES
+   ============================================ */
+
+.book-header {
+    color: #6d1b1b;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2d1f14;
+}
+
+h3 {
+    color: #352014;
+    margin-bottom: 25px;
+}
+
+p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Nota */
+.notice {
+    margin-top: 35px;
+    background: #ccb28a;
+    border: 2px solid #8d6c3d;
+    padding: 20px;
+    color: #2a1b11;
+    font-style: italic;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #241a12;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #6b1515, #4a0f0f);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8b1515;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .book {
+        flex-direction: column;
+        height: 95vh;
+        width: 95%;
+    }
+
+    .page {
+        width: 100%;
+        height: 50%;
+    }
+
+    .spine {
+        width: 100%;
+        height: 25px;
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .spine-rings {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .ems-title {
+        font-size: 60px;
+    }
+
+    .desk-items {
+        display: none;
+    }
+
+    .bottom-quote {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .ems-title {
+        font-size: 48px;
+    }
+
+    .chapter {
+        padding: 12px;
+    }
+
+    .chapter-icon {
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+    }
+
+    .chapter-name {
+        font-size: 14px;
+    }
+
+    .chapter-desc {
+        font-size: 11px;
+    }
+}
