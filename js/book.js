@@ -1,14 +1,6 @@
-// ============================================
-// BLAINE COUNTY EMS - MANUAL OFICIAL
-// JavaScript
-// ============================================
-
 document.addEventListener('DOMContentLoaded', () => {
     console.log("BCEMS Manual Loaded - We Serve To Survive");
 
-    // ==========================================
-    // ANIMACIÓN DE ENTRADA DEL LIBRO
-    // ==========================================
     const book = document.querySelector('.book');
     if (book) {
         book.style.opacity = '0';
@@ -21,9 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 200);
     }
 
-    // ==========================================
-    // ANIMACIÓN DE LOS CAPÍTULOS (stagger)
-    // ==========================================
     const chapters = document.querySelectorAll('.chapter');
     chapters.forEach((chapter, index) => {
         chapter.style.opacity = '0';
@@ -36,9 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     });
 
-    // ==========================================
-    // EFECTO PARALLAX SUAVE EN ELEMENTOS DE MESA
-    // ==========================================
     const deskItems = document.querySelectorAll('.lantern, .morphine-bottle, .syringe, .radio, .bullet-shell, .badge, .sticky-note');
     
     document.addEventListener('mousemove', (e) => {
@@ -51,9 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================================
-    // EFECTO DE PÁGINA AL HACER SCROLL
-    // ==========================================
     const pages = document.querySelectorAll('.page');
     
     pages.forEach(page => {
@@ -65,31 +48,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================================
-    // INTERACCIÓN CON CAPÍTULOS
-    // ==========================================
     chapters.forEach(chapter => {
         chapter.addEventListener('click', (e) => {
             e.preventDefault();
             
             const chapterName = chapter.querySelector('.chapter-name').textContent;
             
-            // Efecto de "página girando" al hacer clic
             chapter.style.transform = 'scale(0.98)';
             chapter.style.transition = 'transform 0.1s';
             
             setTimeout(() => {
                 chapter.style.transform = '';
                 console.log(`Navegando a: ${chapterName}`);
-                // Aquí iría la navegación real a la sección
-                // window.location.href = chapter.getAttribute('href');
             }, 150);
         });
     });
 
-    // ==========================================
-    // ANIMACIÓN DEL SELLO
-    // ==========================================
     const seal = document.querySelector('.seal');
     if (seal) {
         seal.addEventListener('mouseenter', () => {
@@ -102,9 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // EFECTO DE LUZ DE LINTERNA (opcional - desktop)
-    // ==========================================
     const lantern = document.querySelector('.lantern');
     if (lantern && window.innerWidth > 1200) {
         setInterval(() => {
@@ -114,19 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     }
 
-    // ==========================================
-    // DETECCIÓN DE TECLAS (accesibilidad)
-    // ==========================================
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            // Cerrar cualquier modal o volver al inicio
             console.log('Escape presionado - Volviendo al inicio');
         }
     });
 
-    // ==========================================
-    // CONSOLE ART
-    // ==========================================
     console.log('%c BCEMS ', 'background: #5f1010; color: #d4b896; font-size: 24px; font-weight: bold; padding: 10px 20px; border-radius: 4px;');
     console.log('%c We Serve To Survive ', 'color: #8b7355; font-size: 14px; font-style: italic;');
 });
