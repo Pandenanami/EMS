@@ -1,7 +1,40 @@
 /* ============================================
    BLAINE COUNTY EMS - MANUAL OFICIAL
-   Estilos completos
+   Estilos completos - ESCALADO RESPONSIVO
    ============================================ */
+
+/* Variables de escala base */
+:root {
+    /* Base para cálculos proporcionales */
+    --base-unit: clamp(0.5rem, 0.8vw + 0.3rem, 1rem);
+    
+    /* Tamaños de fuente escalables */
+    --text-xs: clamp(0.6rem, 0.5vw + 0.4rem, 0.75rem);
+    --text-sm: clamp(0.7rem, 0.6vw + 0.45rem, 0.875rem);
+    --text-base: clamp(0.8rem, 0.7vw + 0.5rem, 1rem);
+    --text-md: clamp(0.9rem, 0.8vw + 0.55rem, 1.125rem);
+    --text-lg: clamp(1rem, 1vw + 0.6rem, 1.25rem);
+    --text-xl: clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
+    --text-2xl: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
+    --text-3xl: clamp(2rem, 3vw + 0.5rem, 3rem);
+    --text-4xl: clamp(2.5rem, 4vw + 0.5rem, 4rem);
+    --text-5xl: clamp(3rem, 5vw + 0.5rem, 5rem);
+    --text-6xl: clamp(3.5rem, 6vw + 0.5rem, 6rem);
+    
+    /* Colores */
+    --color-primary: #5f1010;
+    --color-primary-light: #8b1515;
+    --color-primary-dark: #3d0a0a;
+    --color-secondary: #2d1f14;
+    --color-accent: #6b1515;
+    --color-gold: #8b6914;
+    --color-paper: #d8c29b;
+    --color-paper-dark: #c9b087;
+    --color-text-light: #d4b896;
+    --color-text-muted: #8b7d6b;
+    --color-border: #4f3220;
+    --color-bg-dark: #191512;
+}
 
 * {
     margin: 0;
@@ -14,7 +47,8 @@
    ============================================ */
 
 body {
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,6 +60,7 @@ body {
     );
     font-family: Georgia, 'Times New Roman', serif;
     overflow: hidden;
+    font-size: var(--text-base);
 }
 
 /* ============================================
@@ -34,11 +69,12 @@ body {
 
 .desk {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: clamp(10px, 2vw, 20px);
     position: relative;
 }
 
@@ -47,9 +83,8 @@ body {
    ============================================ */
 
 .book {
-    width: 1600px;
-    max-width: 95%;
-    height: 90vh;
+    width: min(1400px, 92vw);
+    height: min(85vh, 900px);
     display: flex;
     position: relative;
     border-radius: 8px;
@@ -58,6 +93,7 @@ body {
         0 0 120px rgba(0, 0, 0, 0.9),
         inset 0 0 60px rgba(0, 0, 0, 0.3);
     z-index: 10;
+    transform-origin: center;
 }
 
 /* ============================================
@@ -66,7 +102,7 @@ body {
 
 .page {
     width: 50%;
-    padding: 50px;
+    padding: clamp(20px, 3vw, 50px);
     background: linear-gradient(
         180deg,
         #d8c29b 0%,
@@ -75,6 +111,7 @@ body {
     );
     position: relative;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* Textura de papel envejecido */
@@ -101,11 +138,11 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 200px;
-    height: 200px;
+    width: min(200px, 30%);
+    height: min(200px, 30%);
     background: radial-gradient(
         ellipse at top right,
-        rgba(107, 21, 21, 0.15) 0%,
+        rgba(107, 21, 21, 0.12) 0%,
         transparent 70%
     );
     pointer-events: none;
@@ -128,7 +165,8 @@ body {
    ============================================ */
 
 .spine {
-    width: 35px;
+    width: clamp(20px, 2.5vw, 35px);
+    min-width: 20px;
     background: linear-gradient(
         90deg,
         #4a2d18 0%,
@@ -146,19 +184,19 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 80px;
+    gap: clamp(40px, 8vh, 80px);
 }
 
 .spine-rings {
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: clamp(40px, 8vh, 80px);
 }
 
 .ring {
-    width: 20px;
-    height: 20px;
-    border: 3px solid #6b4a2e;
+    width: clamp(12px, 1.5vw, 20px);
+    height: clamp(12px, 1.5vw, 20px);
+    border: clamp(2px, 0.3vw, 3px) solid #6b4a2e;
     border-radius: 50%;
     box-shadow:
         inset 0 0 5px rgba(0, 0, 0, 0.8),
@@ -178,17 +216,18 @@ body {
     height: 100%;
     position: relative;
     z-index: 1;
+    gap: clamp(8px, 1.5vh, 15px);
 }
 
 /* Logo / Escudo EMS */
 .logo-section {
-    margin-bottom: 15px;
+    margin-bottom: clamp(5px, 1vh, 10px);
 }
 
 .ems-logo {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: clamp(60px, 8vw, 120px);
+    height: clamp(60px, 8vw, 120px);
     margin: 0 auto;
 }
 
@@ -203,28 +242,28 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 50px;
-    color: #5f1010;
+    font-size: clamp(25px, 3.5vw, 50px);
+    color: var(--color-primary);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Títulos */
 h1 {
-    font-size: 90px;
-    color: #5f1010;
+    font-size: var(--text-5xl);
+    color: var(--color-primary);
     line-height: 0.9;
-    letter-spacing: 3px;
+    letter-spacing: clamp(1px, 0.3vw, 3px);
     text-shadow:
         2px 2px 0 rgba(0, 0, 0, 0.3),
         0 0 30px rgba(95, 16, 16, 0.2);
-    margin-bottom: 5px;
+    margin-bottom: 0;
     font-weight: bold;
 }
 
 .ems-title {
-    font-size: 110px;
-    margin-bottom: 10px;
-    letter-spacing: 8px;
+    font-size: var(--text-6xl);
+    margin-bottom: clamp(5px, 1vh, 10px);
+    letter-spacing: clamp(4px, 0.8vw, 8px);
 }
 
 /* Lema */
@@ -233,47 +272,49 @@ h1 {
         90deg,
         transparent,
         #3d1f1f,
-        #5f1010,
+        var(--color-primary),
         #3d1f1f,
         transparent
     );
-    padding: 8px 40px;
-    margin: 10px 0 20px;
+    padding: clamp(5px, 1vh, 8px) clamp(20px, 4vw, 40px);
+    margin: clamp(5px, 1vh, 10px) 0 clamp(10px, 2vh, 20px);
     border-top: 1px solid #8b4513;
     border-bottom: 1px solid #8b4513;
+    width: 100%;
 }
 
 .motto {
-    color: #d4b896;
-    font-size: 14px;
-    letter-spacing: 4px;
+    color: var(--color-text-light);
+    font-size: var(--text-xs);
+    letter-spacing: clamp(2px, 0.4vw, 4px);
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .manual-subtitle {
-    font-size: 28px;
-    color: #2d1f14;
-    letter-spacing: 6px;
-    margin-bottom: 5px;
+    font-size: var(--text-xl);
+    color: var(--color-secondary);
+    letter-spacing: clamp(3px, 0.5vw, 6px);
+    margin-bottom: clamp(3px, 0.5vh, 5px);
     font-weight: normal;
 }
 
 .manual-tagline {
-    font-size: 14px;
-    color: #5f1010;
-    letter-spacing: 3px;
-    margin-bottom: 25px;
+    font-size: var(--text-sm);
+    color: var(--color-primary);
+    letter-spacing: clamp(1px, 0.3vw, 3px);
+    margin-bottom: clamp(10px, 2vh, 25px);
     font-weight: bold;
 }
 
 /* Ilustración de granja */
 .landscape-illustration {
     width: 100%;
-    height: 180px;
-    margin: 20px 0;
+    height: clamp(80px, 15vh, 180px);
+    margin: clamp(10px, 2vh, 20px) 0;
     position: relative;
     opacity: 0.7;
+    flex-shrink: 0;
 }
 
 .farm-scene {
@@ -287,8 +328,8 @@ h1 {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 80px;
+    width: clamp(60px, 10vw, 120px);
+    height: clamp(40px, 7vh, 80px);
     background: linear-gradient(180deg, #3d2817, #2a1a0f);
     clip-path: polygon(0 40%, 50% 0, 100% 40%, 100% 100%, 0 100%);
 }
@@ -299,8 +340,8 @@ h1 {
     top: 45%;
     left: 50%;
     transform: translateX(-50%);
-    width: 20px;
-    height: 30px;
+    width: clamp(12px, 2vw, 20px);
+    height: clamp(18px, 3vh, 30px);
     background: #1a1008;
     border-radius: 10px 10px 0 0;
 }
@@ -309,8 +350,8 @@ h1 {
     position: absolute;
     bottom: 30px;
     left: 20%;
-    width: 8px;
-    height: 100px;
+    width: clamp(4px, 0.6vw, 8px);
+    height: clamp(50px, 10vh, 100px);
     background: #3d2817;
 }
 
@@ -319,8 +360,8 @@ h1 {
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
+    width: clamp(30px, 5vw, 60px);
+    height: clamp(30px, 5vw, 60px);
     animation: spin 20s linear infinite;
 }
 
@@ -333,13 +374,13 @@ h1 {
 
 .windmill-blades::before {
     width: 100%;
-    height: 4px;
+    height: clamp(2px, 0.4vw, 4px);
     top: 50%;
     transform: translateY(-50%);
 }
 
 .windmill-blades::after {
-    width: 4px;
+    width: clamp(2px, 0.4vw, 4px);
     height: 100%;
     left: 50%;
     transform: translateX(-50%);
@@ -362,13 +403,13 @@ h1 {
 /* Caja de actualización */
 .update-box {
     margin-top: auto;
-    padding: 20px;
+    padding: clamp(12px, 2vw, 20px);
     background: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.7),
         rgba(20, 10, 5, 0.8)
     );
-    border: 2px solid #4f3220;
+    border: 2px solid var(--color-border);
     border-radius: 4px;
     width: 100%;
     text-align: left;
@@ -376,22 +417,22 @@ h1 {
 }
 
 .update-box h4 {
-    color: #d4b896;
-    font-size: 14px;
-    letter-spacing: 3px;
+    color: var(--color-text-light);
+    font-size: var(--text-xs);
+    letter-spacing: clamp(1px, 0.3vw, 3px);
     margin-bottom: 5px;
     text-align: center;
-    border-bottom: 1px solid #4f3220;
-    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: clamp(5px, 1vh, 8px);
 }
 
 .update-date {
-    color: #8b6914;
-    font-size: 18px;
+    color: var(--color-gold);
+    font-size: var(--text-lg);
     text-align: center;
-    margin: 10px 0;
+    margin: clamp(5px, 1vh, 10px) 0;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: clamp(1px, 0.3vw, 2px);
 }
 
 .update-list {
@@ -401,9 +442,9 @@ h1 {
 
 .update-list li {
     color: #a08b6e;
-    font-size: 13px;
-    padding: 4px 0;
-    padding-left: 15px;
+    font-size: var(--text-xs);
+    padding: clamp(2px, 0.5vh, 4px) 0;
+    padding-left: clamp(10px, 1.5vw, 15px);
     position: relative;
 }
 
@@ -415,46 +456,51 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: clamp(8px, 1.5vw, 15px);
+    margin-bottom: clamp(15px, 3vh, 25px);
 }
 
 .cross-icon {
-    color: #5f1010;
-    font-size: 20px;
+    color: var(--color-primary);
+    font-size: var(--text-lg);
     font-weight: bold;
 }
 
 .section-header h2 {
-    color: #2d1f14;
-    font-size: 24px;
-    letter-spacing: 4px;
+    color: var(--color-secondary);
+    font-size: var(--text-xl);
+    letter-spacing: clamp(2px, 0.4vw, 4px);
     margin: 0;
 }
 
 .welcome-text {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: clamp(15px, 3vh, 25px);
     color: #3d2b1a;
-    font-size: 15px;
+    font-size: var(--text-sm);
     line-height: 1.8;
+}
+
+.welcome-text p {
+    margin-bottom: clamp(5px, 1vh, 10px);
 }
 
 .welcome-text .emphasis {
     font-style: italic;
-    color: #5f1010;
+    color: var(--color-primary);
     font-weight: bold;
-    font-size: 16px;
-    margin: 10px 0;
+    font-size: var(--text-md);
+    margin: clamp(5px, 1vh, 10px) 0;
 }
 
 /* Ilustración iglesia */
 .church-illustration {
     width: 100%;
-    height: 120px;
-    margin-bottom: 25px;
+    height: clamp(60px, 12vh, 120px);
+    margin-bottom: clamp(15px, 3vh, 25px);
     opacity: 0.6;
     position: relative;
+    flex-shrink: 0;
 }
 
 .church-building {
@@ -462,8 +508,8 @@ h1 {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 60px;
+    width: clamp(40px, 7vw, 80px);
+    height: clamp(30px, 5vh, 60px);
     background: linear-gradient(180deg, #3d2817, #2a1a0f);
     clip-path: polygon(40% 0, 60% 0, 60% 20%, 100% 40%, 100% 100%, 0 100%, 0 40%, 40% 20%);
 }
@@ -476,37 +522,39 @@ h1 {
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 30px solid #3d2817;
+    border-left: clamp(8px, 1.5vw, 15px) solid transparent;
+    border-right: clamp(8px, 1.5vw, 15px) solid transparent;
+    border-bottom: clamp(15px, 3vh, 30px) solid #3d2817;
 }
 
 .church-trees {
     position: absolute;
     bottom: 20px;
     left: 20%;
-    width: 30px;
-    height: 50px;
+    width: clamp(15px, 2.5vw, 30px);
+    height: clamp(25px, 5vh, 50px);
     background: #2a1a0f;
     border-radius: 50% 50% 0 0;
-    box-shadow: 80px 0 0 #2a1a0f, 120px 5px 0 -5px #2a1a0f;
+    box-shadow: 
+        clamp(40px, 7vw, 80px) 0 0 #2a1a0f, 
+        clamp(60px, 10vw, 120px) clamp(2px, 0.5vh, 5px) 0 clamp(-3px, -0.5vw, -5px) #2a1a0f;
 }
 
 /* Título Protocolos */
 .protocols-title {
-    color: #2d1f14;
-    font-size: 22px;
-    letter-spacing: 3px;
+    color: var(--color-secondary);
+    font-size: var(--text-lg);
+    letter-spacing: clamp(1px, 0.3vw, 3px);
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: clamp(3px, 0.5vh, 5px);
 }
 
 .protocols-subtitle {
     text-align: center;
-    color: #5f1010;
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+    color: var(--color-primary);
+    font-size: var(--text-xs);
+    letter-spacing: clamp(1px, 0.2vw, 2px);
+    margin-bottom: clamp(10px, 2vh, 20px);
 }
 
 /* ============================================
@@ -516,19 +564,19 @@ h1 {
 .chapter-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 30px;
+    gap: clamp(8px, 1.5vh, 12px);
+    margin-bottom: clamp(15px, 3vh, 30px);
 }
 
 .chapter {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: clamp(8px, 1.5vw, 15px);
     background: linear-gradient(90deg, #191512, #231a14);
-    color: #d7c39f;
+    color: var(--color-text-light);
     text-decoration: none;
-    padding: 15px 18px;
-    border: 2px solid #4f3220;
+    padding: clamp(10px, 1.5vw, 15px) clamp(12px, 2vw, 18px);
+    border: 2px solid var(--color-border);
     border-radius: 4px;
     transition: all 0.3s ease;
     letter-spacing: 1px;
@@ -546,14 +594,14 @@ h1 {
     top: 0;
     bottom: 0;
     width: 4px;
-    background: #5f1010;
+    background: var(--color-primary);
     opacity: 0;
     transition: opacity 0.3s;
 }
 
 .chapter:hover {
     background: linear-gradient(90deg, #2a1515, #3d1f1f);
-    border-color: #6b1515;
+    border-color: var(--color-accent);
     transform: translateX(8px);
     box-shadow:
         inset 0 0 20px rgba(107, 21, 21, 0.2),
@@ -565,21 +613,22 @@ h1 {
 }
 
 .chapter-icon {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    border: 2px solid #5f1010;
+    width: clamp(30px, 4vw, 40px);
+    height: clamp(30px, 4vw, 40px);
+    min-width: clamp(30px, 4vw, 40px);
+    border: 2px solid var(--color-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #5f1010;
+    color: var(--color-primary);
     background: rgba(95, 16, 16, 0.1);
+    flex-shrink: 0;
 }
 
 .chapter-icon svg {
-    width: 20px;
-    height: 20px;
+    width: clamp(14px, 2vw, 20px);
+    height: clamp(14px, 2vw, 20px);
 }
 
 .heart-icon {
@@ -607,26 +656,29 @@ h1 {
     flex-direction: column;
     flex: 1;
     gap: 3px;
+    min-width: 0;
 }
 
 .chapter-name {
-    font-size: 16px;
+    font-size: var(--text-sm);
     font-weight: bold;
-    color: #d4b896;
-    letter-spacing: 2px;
+    color: var(--color-text-light);
+    letter-spacing: clamp(1px, 0.2vw, 2px);
 }
 
 .chapter-desc {
-    font-size: 12px;
-    color: #8b7d6b;
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
     font-style: italic;
+    line-height: 1.4;
 }
 
 .chapter-arrow {
-    font-size: 24px;
-    color: #5f1010;
+    font-size: var(--text-lg);
+    color: var(--color-primary);
     opacity: 0.6;
     transition: opacity 0.3s;
+    flex-shrink: 0;
 }
 
 .chapter:hover .chapter-arrow {
@@ -638,11 +690,11 @@ h1 {
    ============================================ */
 
 .seal {
-    width: 220px;
-    margin: 20px auto;
-    padding: 15px;
-    border: 3px solid #6b1515;
-    color: #6b1515;
+    width: clamp(150px, 20vw, 220px);
+    margin: clamp(10px, 2vh, 20px) auto;
+    padding: clamp(10px, 1.5vw, 15px);
+    border: 3px solid var(--color-accent);
+    color: var(--color-accent);
     text-align: center;
     transform: rotate(-5deg);
     background: rgba(107, 21, 21, 0.05);
@@ -659,15 +711,15 @@ h1 {
 
 .seal-text {
     display: block;
-    font-size: 32px;
+    font-size: var(--text-3xl);
     font-weight: bold;
-    letter-spacing: 4px;
+    letter-spacing: clamp(2px, 0.4vw, 4px);
 }
 
 .seal-motto {
     display: block;
-    font-size: 10px;
-    letter-spacing: 2px;
+    font-size: var(--text-xs);
+    letter-spacing: clamp(1px, 0.2vw, 2px);
     margin-top: 5px;
     color: #8b4513;
 }
@@ -681,7 +733,7 @@ h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 200px;
+    height: clamp(120px, 20vh, 200px);
     pointer-events: none;
     z-index: 5;
 }
@@ -689,10 +741,10 @@ h1 {
 /* Linterna */
 .lantern {
     position: absolute;
-    bottom: 20px;
-    left: 30px;
-    width: 60px;
-    height: 80px;
+    bottom: clamp(10px, 2vh, 20px);
+    left: clamp(15px, 2vw, 30px);
+    width: clamp(40px, 5vw, 60px);
+    height: clamp(50px, 7vh, 80px);
 }
 
 .lantern-body {
@@ -710,8 +762,8 @@ h1 {
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 30px;
-    height: 15px;
+    width: clamp(15px, 2vw, 30px);
+    height: clamp(8px, 1.5vh, 15px);
     background: #1a1a1a;
     border-radius: 5px 5px 0 0;
     border: 2px solid #333;
@@ -723,8 +775,8 @@ h1 {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
+    width: clamp(25px, 3vw, 40px);
+    height: clamp(25px, 3vw, 40px);
     background: radial-gradient(
         circle,
         rgba(255, 200, 100, 0.8),
@@ -740,8 +792,8 @@ h1 {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 100px;
+    width: clamp(60px, 8vw, 100px);
+    height: clamp(60px, 8vw, 100px);
     background: radial-gradient(
         circle,
         rgba(255, 200, 100, 0.15),
@@ -759,10 +811,10 @@ h1 {
 /* Botella de morfina */
 .morphine-bottle {
     position: absolute;
-    bottom: 30px;
-    left: 120px;
-    width: 50px;
-    height: 70px;
+    bottom: clamp(15px, 3vh, 30px);
+    left: clamp(80px, 10vw, 120px);
+    width: clamp(35px, 4vw, 50px);
+    height: clamp(50px, 6vh, 70px);
     background: linear-gradient(180deg, #2a1810, #1a0f08);
     border-radius: 5px;
     border: 1px solid #4a2d18;
@@ -780,8 +832,8 @@ h1 {
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
+    width: clamp(12px, 1.5vw, 20px);
+    height: clamp(12px, 1.5vw, 20px);
     background: #1a0f08;
     border-radius: 50%;
     border: 2px solid #4a2d18;
@@ -789,7 +841,7 @@ h1 {
 
 .bottle-label {
     color: #8b7355;
-    font-size: 8px;
+    font-size: clamp(6px, 0.7vw, 8px);
     font-weight: bold;
     letter-spacing: 1px;
     text-align: center;
@@ -797,29 +849,29 @@ h1 {
 
 .bottle-sub {
     color: #5a4a3a;
-    font-size: 6px;
+    font-size: clamp(5px, 0.5vw, 6px);
     text-align: center;
 }
 
 .bottle-cross {
-    color: #5f1010;
-    font-size: 16px;
+    color: var(--color-primary);
+    font-size: clamp(12px, 1.5vw, 16px);
     margin-top: 5px;
 }
 
 /* Jeringa */
 .syringe {
     position: absolute;
-    bottom: 40px;
-    left: 190px;
-    width: 80px;
-    height: 15px;
+    bottom: clamp(20px, 4vh, 40px);
+    left: clamp(130px, 15vw, 190px);
+    width: clamp(50px, 7vw, 80px);
+    height: clamp(10px, 1.5vh, 15px);
     transform: rotate(-15deg);
 }
 
 .syringe-body {
-    width: 60px;
-    height: 12px;
+    width: 60%;
+    height: 80%;
     background: linear-gradient(180deg, #c0c0c0, #808080);
     border-radius: 2px;
     position: relative;
@@ -828,36 +880,36 @@ h1 {
 .syringe-body::before {
     content: "";
     position: absolute;
-    right: -15px;
+    right: -25%;
     top: 50%;
     transform: translateY(-50%);
-    width: 20px;
-    height: 8px;
+    width: 30%;
+    height: 60%;
     background: #c0c0c0;
     border-radius: 0 2px 2px 0;
 }
 
 .syringe-needle {
     position: absolute;
-    left: -25px;
+    left: -30%;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px;
-    height: 2px;
+    width: 35%;
+    height: 15%;
     background: linear-gradient(90deg, #c0c0c0, #808080);
 }
 
 /* Radio */
 .radio {
     position: absolute;
-    bottom: 20px;
-    right: 30px;
-    width: 100px;
-    height: 130px;
+    bottom: clamp(10px, 2vh, 20px);
+    right: clamp(15px, 2vw, 30px);
+    width: clamp(70px, 8vw, 100px);
+    height: clamp(90px, 12vh, 130px);
     background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
     border-radius: 5px;
     border: 2px solid #333;
-    padding: 8px;
+    padding: clamp(5px, 1vw, 8px);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
 }
 
@@ -867,7 +919,7 @@ h1 {
     top: -30px;
     right: 10px;
     width: 3px;
-    height: 35px;
+    height: clamp(25px, 4vh, 35px);
     background: #333;
     transform: rotate(10deg);
 }
@@ -875,14 +927,14 @@ h1 {
 .radio-screen {
     background: #1a3d1a;
     border: 1px solid #0d260d;
-    padding: 5px;
-    margin-bottom: 8px;
+    padding: clamp(3px, 0.5vw, 5px);
+    margin-bottom: clamp(5px, 1vh, 8px);
     font-family: 'Courier New', monospace;
 }
 
 .radio-line {
     color: #4aff4a;
-    font-size: 9px;
+    font-size: clamp(7px, 0.8vw, 9px);
     line-height: 1.4;
     text-shadow: 0 0 5px rgba(74, 255, 74, 0.5);
 }
@@ -896,8 +948,8 @@ h1 {
 .r-btn {
     background: #2a2a2a;
     color: #666;
-    font-size: 6px;
-    padding: 3px 5px;
+    font-size: clamp(5px, 0.5vw, 6px);
+    padding: clamp(2px, 0.3vw, 3px) clamp(3px, 0.4vw, 5px);
     border-radius: 2px;
     border: 1px solid #333;
 }
@@ -905,11 +957,11 @@ h1 {
 /* Vainas de bala */
 .bullet-shell {
     position: absolute;
-    width: 8px;
-    height: 25px;
+    width: clamp(5px, 0.7vw, 8px);
+    height: clamp(18px, 2.5vh, 25px);
     background: linear-gradient(90deg, #b8860b, #8b6914, #b8860b);
     border-radius: 0 0 4px 4px;
-    bottom: 35px;
+    bottom: clamp(25px, 4vh, 35px);
 }
 
 .bullet-shell::before {
@@ -924,22 +976,22 @@ h1 {
 }
 
 .shell-1 {
-    right: 150px;
+    right: clamp(120px, 14vw, 150px);
     transform: rotate(45deg);
 }
 
 .shell-2 {
-    right: 170px;
+    right: clamp(140px, 16vw, 170px);
     transform: rotate(-20deg);
 }
 
 /* Insignia */
 .badge {
     position: absolute;
-    bottom: 30px;
-    right: 200px;
-    width: 60px;
-    height: 60px;
+    bottom: clamp(20px, 3vh, 30px);
+    right: clamp(160px, 18vw, 200px);
+    width: clamp(40px, 5vw, 60px);
+    height: clamp(40px, 5vw, 60px);
     background: radial-gradient(circle, #2a2a2a, #1a1a1a);
     border-radius: 50%;
     border: 3px solid #4a4a4a;
@@ -952,23 +1004,23 @@ h1 {
 
 .badge-star {
     color: #b8860b;
-    font-size: 20px;
+    font-size: clamp(12px, 1.5vw, 20px);
 }
 
 .badge-text {
     color: #666;
-    font-size: 8px;
+    font-size: clamp(6px, 0.7vw, 8px);
     letter-spacing: 1px;
 }
 
 /* Nota adhesiva */
 .sticky-note {
     position: absolute;
-    bottom: 60px;
-    left: 50px;
-    width: 140px;
+    bottom: clamp(40px, 8vh, 60px);
+    left: clamp(30px, 4vw, 50px);
+    width: clamp(100px, 12vw, 140px);
     background: linear-gradient(180deg, #c4a574, #b8956a);
-    padding: 12px;
+    padding: clamp(8px, 1.2vw, 12px);
     transform: rotate(-3deg);
     box-shadow:
         0 5px 15px rgba(0, 0, 0, 0.4),
@@ -982,34 +1034,35 @@ h1 {
     top: -5px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 12px;
+    width: clamp(25px, 3vw, 40px);
+    height: clamp(8px, 1.2vh, 12px);
     background: rgba(0, 0, 0, 0.2);
     border-radius: 2px;
 }
 
 .sticky-title {
-    font-size: 12px;
+    font-size: clamp(9px, 1vw, 12px);
     font-weight: bold;
-    color: #2d1f14;
-    margin-bottom: 8px;
-    letter-spacing: 2px;
+    color: var(--color-secondary);
+    margin-bottom: clamp(5px, 1vh, 8px);
+    letter-spacing: clamp(1px, 0.2vw, 2px);
     border-bottom: 1px solid rgba(45, 31, 20, 0.3);
     padding-bottom: 4px;
 }
 
 .sticky-note p {
-    font-size: 11px;
+    font-size: clamp(8px, 0.9vw, 11px);
     color: #3d2b1a;
     line-height: 1.5;
     font-style: italic;
+    margin-bottom: 0;
 }
 
 .sticky-cross {
     text-align: center;
-    color: #5f1010;
-    font-size: 18px;
-    margin-top: 8px;
+    color: var(--color-primary);
+    font-size: clamp(14px, 1.8vw, 18px);
+    margin-top: clamp(5px, 1vh, 8px);
     opacity: 0.6;
 }
 
@@ -1019,7 +1072,7 @@ h1 {
 
 .bottom-quote {
     position: fixed;
-    bottom: 10px;
+    bottom: clamp(5px, 1vh, 10px);
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -1029,16 +1082,16 @@ h1 {
 
 .quote-line1 {
     color: #8b7355;
-    font-size: 14px;
-    letter-spacing: 3px;
-    margin-bottom: 5px;
+    font-size: clamp(10px, 1.2vw, 14px);
+    letter-spacing: clamp(2px, 0.3vw, 3px);
+    margin-bottom: clamp(3px, 0.5vh, 5px);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .quote-line2 {
-    color: #5f1010;
-    font-size: 16px;
-    letter-spacing: 4px;
+    color: var(--color-primary);
+    font-size: clamp(11px, 1.4vw, 16px);
+    letter-spacing: clamp(2px, 0.4vw, 4px);
     font-weight: bold;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
@@ -1050,33 +1103,33 @@ h1 {
 .book-header {
     color: #6d1b1b;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: clamp(10px, 2vh, 20px);
     letter-spacing: 3px;
     font-weight: bold;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 30px;
-    color: #2d1f14;
+    margin-bottom: clamp(15px, 3vh, 30px);
+    color: var(--color-secondary);
 }
 
 h3 {
     color: #352014;
-    margin-bottom: 25px;
+    margin-bottom: clamp(15px, 2vh, 25px);
 }
 
 p {
     line-height: 1.8;
-    margin-bottom: 20px;
+    margin-bottom: clamp(10px, 1.5vh, 20px);
 }
 
 /* Nota */
 .notice {
-    margin-top: 35px;
+    margin-top: clamp(20px, 3vh, 35px);
     background: #ccb28a;
     border: 2px solid #8d6c3d;
-    padding: 20px;
+    padding: clamp(12px, 2vw, 20px);
     color: #2a1b11;
     font-style: italic;
 }
@@ -1086,7 +1139,7 @@ p {
    ============================================ */
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: clamp(5px, 0.7vw, 8px);
 }
 
 ::-webkit-scrollbar-track {
@@ -1095,7 +1148,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #6b1515, #4a0f0f);
+    background: linear-gradient(180deg, var(--color-accent), #4a0f0f);
     border-radius: 4px;
 }
 
@@ -1112,31 +1165,33 @@ p {
         flex-direction: column;
         height: 95vh;
         width: 95%;
+        max-height: none;
     }
 
     .page {
         width: 100%;
         height: 50%;
+        padding: clamp(15px, 3vw, 30px);
     }
 
     .spine {
         width: 100%;
-        height: 25px;
+        height: clamp(15px, 3vh, 25px);
         flex-direction: row;
-        gap: 40px;
+        gap: clamp(20px, 4vw, 40px);
     }
 
     .spine-rings {
         flex-direction: row;
-        gap: 40px;
+        gap: clamp(20px, 4vw, 40px);
     }
 
     h1 {
-        font-size: 50px;
+        font-size: var(--text-4xl);
     }
 
     .ems-title {
-        font-size: 60px;
+        font-size: var(--text-5xl);
     }
 
     .desk-items {
@@ -1146,36 +1201,84 @@ p {
     .bottom-quote {
         display: none;
     }
+    
+    .landscape-illustration {
+        height: clamp(60px, 10vh, 100px);
+    }
+    
+    .church-illustration {
+        height: clamp(40px, 8vh, 80px);
+    }
 }
 
 @media (max-width: 768px) {
     .page {
-        padding: 25px;
+        padding: clamp(12px, 3vw, 20px);
     }
 
     h1 {
-        font-size: 36px;
+        font-size: var(--text-3xl);
     }
 
     .ems-title {
-        font-size: 48px;
+        font-size: var(--text-4xl);
     }
 
     .chapter {
-        padding: 12px;
+        padding: clamp(8px, 2vw, 12px);
     }
 
     .chapter-icon {
-        width: 35px;
-        height: 35px;
-        min-width: 35px;
+        width: clamp(25px, 5vw, 35px);
+        height: clamp(25px, 5vw, 35px);
+        min-width: clamp(25px, 5vw, 35px);
     }
 
     .chapter-name {
-        font-size: 14px;
+        font-size: var(--text-xs);
     }
 
     .chapter-desc {
-        font-size: 11px;
+        font-size: clamp(9px, 2vw, 11px);
+    }
+    
+    .update-box {
+        padding: clamp(8px, 2vw, 12px);
+    }
+    
+    .motto-banner {
+        padding: clamp(3px, 1vh, 5px) clamp(10px, 3vw, 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .book {
+        width: 98%;
+        height: 98vh;
+    }
+    
+    .page {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: var(--text-2xl);
+    }
+    
+    .ems-title {
+        font-size: var(--text-3xl);
+    }
+    
+    .chapter {
+        gap: 8px;
+        padding: 8px 10px;
+    }
+    
+    .chapter-icon {
+        display: none;
+    }
+    
+    .chapter-arrow {
+        display: none;
     }
 }
