@@ -1,7 +1,1 @@
-document
-.getElementById("openBook")
-.addEventListener("click", function(){
-
-    alert("El manual funciona");
-
-});
+console.log("BCEMS Loaded");
