@@ -1,324 +1,794 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ============================================
+   BLAINE COUNTY EMS - MANUAL OFICIAL
+   Estilos completos
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+/* ============================================
+   BODY & BACKGROUND
+   ============================================ */
 
-    height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:
-    radial-gradient(
-    circle at center,
-    #24150f 0%,
-    #120b08 50%,
-    #000000 100%
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(
+        circle at center,
+        #24150f 0%,
+        #120b08 50%,
+        #000000 100%
     );
-
-    font-family:Georgia, serif;
-
-    overflow:hidden;
+    font-family: Georgia, 'Times New Roman', serif;
+    overflow: hidden;
 }
 
-/* Mesa */
+/* ============================================
+   MESA / DESK
+   ============================================ */
 
-.desk{
-
-    width:100%;
-    height:100%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:20px;
+.desk {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
 }
 
-/* Libro */
+/* ============================================
+   LIBRO / BOOK
+   ============================================ */
 
-.book{
-
-    width:1600px;
-    max-width:95%;
-
-    height:90vh;
-
-    display:flex;
-
-    position:relative;
-
-    border-radius:8px;
-
+.book {
+    width: 1600px;
+    max-width: 95%;
+    height: 90vh;
+    display: flex;
+    position: relative;
+    border-radius: 8px;
     box-shadow:
-    0 0 20px rgba(0,0,0,.8),
-    0 0 120px rgba(0,0,0,.9);
+        0 0 20px rgba(0, 0, 0, 0.8),
+        0 0 120px rgba(0, 0, 0, 0.9),
+        inset 0 0 60px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
-/* Páginas */
+/* ============================================
+   PÁGINAS / PAGES
+   ============================================ */
 
-.page{
-
-    width:50%;
-
-    padding:50px;
-
-    background:
-    linear-gradient(
-    180deg,
-    #d8c29b,
-    #c9b087
+.page {
+    width: 50%;
+    padding: 50px;
+    background: linear-gradient(
+        180deg,
+        #d8c29b 0%,
+        #c9b087 50%,
+        #c4ab7e 100%
     );
-
-    position:relative;
-
-    overflow-y:auto;
+    position: relative;
+    overflow-y: auto;
 }
 
-.page::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
+/* Textura de papel envejecido */
+.page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background:
-    linear-gradient(
-    rgba(255,255,255,.04),
-    rgba(0,0,0,.05)
-    );
+        linear-gradient(
+            rgba(255, 255, 255, 0.04),
+            rgba(0, 0, 0, 0.05)
+        ),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.6;
+}
 
-    pointer-events:none;
+/* Manchas de sangre decorativas */
+.page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+        ellipse at top right,
+        rgba(107, 21, 21, 0.15) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
 }
 
 /* Lado izquierdo */
-
-.left-page{
-
-    border-right:1px solid rgba(0,0,0,.2);
+.left-page {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px 0 0 8px;
 }
 
 /* Lado derecho */
-
-.right-page{
-
-    border-left:1px solid rgba(0,0,0,.2);
+.right-page {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0 8px 8px 0;
 }
 
-/* Lomo */
+/* ============================================
+   LOMO / SPINE
+   ============================================ */
 
-.spine{
-
-    width:35px;
-
-    background:
-    linear-gradient(
-    90deg,
-    #4a2d18,
-    #1d120b,
-    #4a2d18
+.spine {
+    width: 35px;
+    background: linear-gradient(
+        90deg,
+        #4a2d18 0%,
+        #2a1a0f 30%,
+        #1d120b 50%,
+        #2a1a0f 70%,
+        #4a2d18 100%
     );
-
     box-shadow:
-    inset 0 0 20px rgba(0,0,0,.8);
+        inset 0 0 20px rgba(0, 0, 0, 0.8),
+        inset 2px 0 5px rgba(0, 0, 0, 0.5),
+        inset -2px 0 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
 }
 
-/* Encabezado */
+.spine-rings {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
 
-.book-header{
+.ring {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #6b4a2e;
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0 5px rgba(0, 0, 0, 0.8),
+        0 0 3px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #3d2616, #1a1008);
+}
 
-    color:#6d1b1b;
+/* ============================================
+   PORTADA INTERIOR - LEFT PAGE
+   ============================================ */
 
-    text-align:center;
+.cover-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
 
-    margin-bottom:20px;
+/* Logo / Escudo EMS */
+.logo-section {
+    margin-bottom: 15px;
+}
 
-    letter-spacing:3px;
+.ems-logo {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
 
-    font-weight:bold;
+.star-of-life {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+}
+
+.caduceus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: #5f1010;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Títulos */
-
-h1{
-
-    font-size:90px;
-
-    color:#5f1010;
-
-    line-height:.9;
-
-    letter-spacing:3px;
-
+h1 {
+    font-size: 90px;
+    color: #5f1010;
+    line-height: 0.9;
+    letter-spacing: 3px;
     text-shadow:
-    2px 2px 0 #000;
-
-    margin-bottom:25px;
+        2px 2px 0 rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(95, 16, 16, 0.2);
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-h2{
-
-    text-align:center;
-
-    margin-bottom:30px;
-
-    color:#2d1f14;
+.ems-title {
+    font-size: 110px;
+    margin-bottom: 10px;
+    letter-spacing: 8px;
 }
 
-h3{
-
-    color:#352014;
-
-    margin-bottom:25px;
+/* Lema */
+.motto-banner {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #3d1f1f,
+        #5f1010,
+        #3d1f1f,
+        transparent
+    );
+    padding: 8px 40px;
+    margin: 10px 0 20px;
+    border-top: 1px solid #8b4513;
+    border-bottom: 1px solid #8b4513;
 }
 
-p{
-
-    line-height:1.8;
-
-    margin-bottom:20px;
+.motto {
+    color: #d4b896;
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Menú */
-
-.chapter-list{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:15px;
+.manual-subtitle {
+    font-size: 28px;
+    color: #2d1f14;
+    letter-spacing: 6px;
+    margin-bottom: 5px;
+    font-weight: normal;
 }
 
-.chapter{
+.manual-tagline {
+    font-size: 14px;
+    color: #5f1010;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
 
-    background:#191512;
+/* Ilustración de granja */
+.landscape-illustration {
+    width: 100%;
+    height: 180px;
+    margin: 20px 0;
+    position: relative;
+    opacity: 0.7;
+}
 
-    color:#d7c39f;
+.farm-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
-    text-decoration:none;
+.barn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 80px;
+    background: linear-gradient(180deg, #3d2817, #2a1a0f);
+    clip-path: polygon(0 40%, 50% 0, 100% 40%, 100% 100%, 0 100%);
+}
 
-    padding:18px;
+.barn::before {
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 30px;
+    background: #1a1008;
+    border-radius: 10px 10px 0 0;
+}
 
-    border:2px solid #4f3220;
+.windmill {
+    position: absolute;
+    bottom: 30px;
+    left: 20%;
+    width: 8px;
+    height: 100px;
+    background: #3d2817;
+}
 
-    transition:.3s;
+.windmill-blades {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    animation: spin 20s linear infinite;
+}
 
-    letter-spacing:1px;
+.windmill-blades::before,
+.windmill-blades::after {
+    content: "";
+    position: absolute;
+    background: #3d2817;
+}
 
+.windmill-blades::before {
+    width: 100%;
+    height: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.windmill-blades::after {
+    width: 4px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes spin {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
+}
+
+.ground-line {
+    position: absolute;
+    bottom: 25px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3d2817, transparent);
+}
+
+/* Caja de actualización */
+.update-box {
+    margin-top: auto;
+    padding: 20px;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.7),
+        rgba(20, 10, 5, 0.8)
+    );
+    border: 2px solid #4f3220;
+    border-radius: 4px;
+    width: 100%;
+    text-align: left;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.update-box h4 {
+    color: #d4b896;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-bottom: 1px solid #4f3220;
+    padding-bottom: 8px;
+}
+
+.update-date {
+    color: #8b6914;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.update-list {
+    list-style: none;
+    padding: 0;
+}
+
+.update-list li {
+    color: #a08b6e;
+    font-size: 13px;
+    padding: 4px 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+/* ============================================
+   PÁGINA DERECHA - BIENVENIDO + MENÚ
+   ============================================ */
+
+.section-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.cross-icon {
+    color: #5f1010;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.section-header h2 {
+    color: #2d1f14;
+    font-size: 24px;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #3d2b1a;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.welcome-text .emphasis {
+    font-style: italic;
+    color: #5f1010;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* Ilustración iglesia */
+.church-illustration {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 25px;
+    opacity: 0.6;
+    position: relative;
+}
+
+.church-building {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 60px;
+    background: linear-gradient(180deg, #3d2817, #2a1a0f);
+    clip-path: polygon(40% 0, 60% 0, 60% 20%, 100% 40%, 100% 100%, 0 100%, 0 40%, 40% 20%);
+}
+
+.church-building::before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #3d2817;
+}
+
+.church-trees {
+    position: absolute;
+    bottom: 20px;
+    left: 20%;
+    width: 30px;
+    height: 50px;
+    background: #2a1a0f;
+    border-radius: 50% 50% 0 0;
+    box-shadow: 80px 0 0 #2a1a0f, 120px 5px 0 -5px #2a1a0f;
+}
+
+/* Título Protocolos */
+.protocols-title {
+    color: #2d1f14;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.protocols-subtitle {
+    text-align: center;
+    color: #5f1010;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   MENÚ DE CAPÍTULOS
+   ============================================ */
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.chapter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(90deg, #191512, #231a14);
+    color: #d7c39f;
+    text-decoration: none;
+    padding: 15px 18px;
+    border: 2px solid #4f3220;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
     box-shadow:
-    inset 0 0 10px rgba(0,0,0,.8);
+        inset 0 0 15px rgba(0, 0, 0, 0.8),
+        0 2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
-.chapter:hover{
-
-    background:#651616;
-
-    transform:translateX(8px);
+.chapter::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #5f1010;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-/* Nota */
-
-.notice{
-
-    margin-top:35px;
-
-    background:#ccb28a;
-
-    border:2px solid #8d6c3d;
-
-    padding:20px;
-
-    color:#2a1b11;
-
-    font-style:italic;
+.chapter:hover {
+    background: linear-gradient(90deg, #2a1515, #3d1f1f);
+    border-color: #6b1515;
+    transform: translateX(8px);
+    box-shadow:
+        inset 0 0 20px rgba(107, 21, 21, 0.2),
+        0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Portada */
-
-.cover{
-
-    text-align:center;
+.chapter:hover::before {
+    opacity: 1;
 }
 
-.ems-icon{
-
-    font-size:120px;
-
-    color:#5f1010;
-
-    margin-bottom:20px;
+.chapter-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border: 2px solid #5f1010;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5f1010;
+    background: rgba(95, 16, 16, 0.1);
 }
 
-/* Sello */
-
-.seal{
-
-    width:250px;
-
-    margin:60px auto;
-
-    padding:20px;
-
-    border:4px solid #6b1515;
-
-    color:#6b1515;
-
-    font-weight:bold;
-
-    transform:rotate(-8deg);
+.chapter-icon svg {
+    width: 20px;
+    height: 20px;
 }
 
-/* Scroll */
-
-::-webkit-scrollbar{
-
-    width:10px;
+.heart-icon {
+    border-color: #8b1515;
+    color: #8b1515;
 }
 
-::-webkit-scrollbar-track{
-
-    background:#241a12;
+.lung-icon {
+    border-color: #4a3728;
+    color: #4a3728;
 }
 
-::-webkit-scrollbar-thumb{
-
-    background:#6b1515;
+.teddy-icon {
+    border-color: #6b5a3e;
+    color: #6b5a3e;
 }
 
-/* Responsive */
-
-@media(max-width:1200px){
-
-    .book{
-
-        flex-direction:column;
-
-        height:95vh;
-    }
-
-    .page{
-
-        width:100%;
-    }
-
-    .spine{
-
-        width:100%;
-        height:25px;
-    }
-
-    h1{
-
-        font-size:50px;
-    }
+.brain-icon {
+    border-color: #3d3d3d;
+    color: #3d3d3d;
 }
+
+.chapter-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 3px;
+}
+
+.chapter-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d4b896;
+    letter-spacing: 2px;
+}
+
+.chapter-desc {
+    font-size: 12px;
+    color: #8b7d6b;
+    font-style: italic;
+}
+
+.chapter-arrow {
+    font-size: 24px;
+    color: #5f1010;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.chapter:hover .chapter-arrow {
+    opacity: 1;
+}
+
+/* ============================================
+   SELLO / SEAL
+   ============================================ */
+
+.seal {
+    width: 220px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 3px solid #6b1515;
+    color: #6b1515;
+    text-align: center;
+    transform: rotate(-5deg);
+    background: rgba(107, 21, 21, 0.05);
+    position: relative;
+    box-shadow: 0 0 10px rgba(107, 21, 21, 0.1);
+}
+
+.seal::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border: 1px solid rgba(107, 21, 21, 0.3);
+}
+
+.seal-text {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.seal-motto {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    color: #8b4513;
+}
+
+/* ============================================
+   ELEMENTOS DECORATIVOS DE LA MESA
+   ============================================ */
+
+.desk-items {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Linterna */
+.lantern {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    width: 60px;
+    height: 80px;
+}
+
+.lantern-body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+    border-radius: 10px 10px 20px 20px;
+    border: 2px solid #333;
+    position: relative;
+}
+
+.lantern-body::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 15px;
+    background: #1a1a1a;
+    border-radius: 5px 5px 0 0;
+    border: 2px solid #333;
+}
+
+.lantern-body::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 200, 100, 0.8),
+        rgba(255, 150, 50, 0.4),
+        transparent
+    );
+    border-radius: 50%;
+    animation: flicker 3s ease-in-out infinite;
+}
+
+.lantern-glow {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 200, 100, 0.15),
+        transparent 70%
+    );
+    animation: flicker 3s ease-in-out infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+    75% { opacity: 0.9; }
+}
+
+/* Botella de morfina */
+.morphine-bottle {
+    position: absolute;
+    bottom: 30px;
+    left: 120px;
+    width: 50px;
+    height: 70px;
+    background: linear-gradient(180deg, #2a1810, #1a0f08);
+    border-radius: 5px;
+    border: 1px solid #4a2d18;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.morphine-bottle::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #1a0f08;
+    border-radius: 50%;
+    border: 2px solid #4a2d18;
+}
+
+.bottle-label {
+    color: #8b7355;
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 1px
